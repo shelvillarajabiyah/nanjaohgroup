@@ -1,0 +1,917 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Variabel CSS Global (Opsional, tapi direkomendasikan untuk konsistensi warna) */
+:root {
+  --primary-color: #D852C0; /* Contoh warna primer */
+  --secondary-color: #B843A3; /* Contoh warna sekunder */
+  --dark-color: #0F4456; /* Contoh warna gelap untuk teks/elemen */
+  --light-color: #f3f0ea; /* Contoh warna terang untuk background */
+  --text-color: #333333; /* Warna teks umum */
+  --grey-text: #666666; /* Warna teks abu-abu */
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #360E2B;
+  color: #333333;
+  overflow-x: hidden;
+}
+
+/* Navigation */
+nav {
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 32px; 
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #0F4456; 
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #360E2B; 
+}
+
+/* Hamburger menu icon */
+.menu-toggle {
+  display: none; 
+  font-size: 1.8rem;
+  color: #0F4456; 
+  cursor: pointer;
+  position: relative; 
+  width: 2em; 
+  height: 1.5em; 
+}
+
+.hamburger-icon, .close-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease-in-out;
+}
+
+.close-icon {
+    opacity: 0; 
+}
+
+/* Hero Section */
+.hero {
+  margin-top: 80px; 
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url('https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/background-LP.png?v=1749634292162') no-repeat center center/cover;
+  color: white;
+  padding: 0 5%;
+  overflow: hidden; 
+}
+
+.hero-content {
+  opacity: 0;
+  transform: translateX(-100%);
+  animation: slideInFromLeft 1s forwards;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  max-width: 900px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInFromBottom 0.8s forwards;
+  animation-delay: 0.5s;
+}
+
+.hero-content p {
+  font-size: 16px; 
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 700px; 
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInFromBottom 0.8s forwards;
+  animation-delay: 0.8s;
+}
+
+.cta-btn {
+  display: inline-block;
+  background-color: #D852C0;
+  color: white;
+  padding: 10px 24px; 
+  border-radius: 50px;
+  font-size: 16px; 
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInFromBottom 0.8s forwards;
+  animation-delay: 1.1s;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(216, 82, 192, 0.6);
+}
+
+/* Keyframe Animations */
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInFromBottom {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Fundraising1 Section */
+.fundraising1 {
+  padding: 100px 0; 
+  background-color: #f9f7f2;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem; 
+}
+        
+.section-header h2 {
+  font-size: 2.5rem;
+  color: #0F4456; 
+  padding-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+}
+
+.section-header h2.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-header p {
+  color: #666666; 
+  font-size: 16px;
+  max-width: 800px;
+  margin: 0 auto; 
+  padding-bottom: 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+}
+
+.section-header p.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+        
+/* Progress Bar */
+.progress-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+}
+
+.progress-container.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+        
+.progress-bar {
+  height: 30px;
+  background-color: #e0e0e0;
+  border-radius: 50px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+        
+.progress {
+  width: 0%; 
+  height: 100%;
+  background: linear-gradient(90deg, #360E2B, #0F4456); 
+  border-radius: 50px;
+  position: relative;
+  transition: width 2s ease-in-out; 
+}
+
+.progress.animate {
+    width: 65%; 
+}
+        
+.progress-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 400; 
+  width: 100%; 
+  max-width: 800px; 
+  color: #666666; 
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.progress-text.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cta-donate {
+  display: inline-block;
+  background-color: #360E2B;
+  color: white;
+  padding: 8px 24px; 
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 500; 
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  margin-top: 2rem;
+  align-self: flex-end; 
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+}
+
+.cta-donate.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cta-donate:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(224, 122, 95, 0.6);
+}
+
+/* Fundraising Section */
+.fundraising {
+  padding: 5rem 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: white;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+}
+
+.section-title.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 3rem;
+  color: #FAFAFA;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+}
+
+.section-subtitle.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.funds-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.fund-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+}
+
+.fund-card.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fund-card:hover {
+  transform: translateY(-10px);
+}
+
+.fund-icon {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f0ea;
+  font-size: 3rem;
+  color: #0F4456;
+}
+
+.fund-info {
+  padding: 1.5rem;
+}
+
+.fund-info h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #0F4456;
+}
+
+.fund-info p {
+  color: #666666;
+  line-height: 1.4;
+  font-size: 12px;
+}
+
+/* Project Section */
+.project {
+  padding: 5rem 5%;
+  background-color: #f9f7f2;
+  color: white;
+  overflow: hidden;
+}
+
+.project-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.project-img {
+  width: 100%;
+  height: 400px;
+  background: url('https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/poster-lp?v=1750176908054') no-repeat center center/cover;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateX(-50px); 
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+}
+
+.project-img.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.project-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #0F4456;
+  opacity: 0;
+  transform: translateX(50px); 
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+}
+
+.project-content h2.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.project-content p {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: #666666;
+  opacity: 0;
+  transform: translateX(50px); 
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+}
+
+.project-content p.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.cta-btn.white {
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0F4456;
+  border: 2px solid #0F4456;
+  opacity: 0;
+  transform: translateX(50px); 
+  padding: 8px 24px;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+}
+
+.cta-btn.white.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.cta-btn.white:hover {
+  background-color: #0F4456;
+  color: white;
+  box-shadow: 0 0 15px rgba(15, 68, 86, 0.4);
+}
+
+/* Footer */
+footer {
+  background-color: #333333;
+  color: white;
+  padding: 3rem 5%;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.footer-col h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.footer-col h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 50px;
+  height: 2px;
+  background-color: #D852C0;
+}
+
+.footer-col p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #444444;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: #e07a5f;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid #444444;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaaaaa;
+}
+
+/* VR Experience Page */
+.vr-experience {
+  padding: 10rem 5% 5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.journey-map {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.journey-map::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #dddddd;
+  z-index: 1;
+}
+
+.journey-point {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.point-btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  border: 3px solid #4b6043;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.point-btn.locked {
+  background-color: #f3f0ea;
+  border-color: #dddddd;
+  cursor: not-allowed;
+}
+
+.point-btn .lock-icon {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #e07a5f;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.point-btn:not(.locked):hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.point-title {
+  font-weight: 600;
+  color: #4b6043;
+  text-align: center;
+}
+
+.journey-point.locked .point-title {
+  color: #999999;
+}
+
+.vr-container {
+  width: 100%;
+  height: 600px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.vr-instructions {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.vr-instructions h3 {
+  margin-bottom: 1rem;
+  color: #4b6043;
+}
+
+.vr-instructions ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.vr-instructions li {
+  margin-bottom: 0.5rem;
+}
+
+.next-level-btn {
+  display: none;
+  background-color: #e07a5f;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(224, 122, 95, 0.4);
+}
+
+.next-level-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(224, 122, 95, 0.6);
+}
+
+.complete-status {
+  margin-top: 1rem;
+  display: none;
+  color: #4b6043;
+  font-weight: 600;
+}
+
+.donation-prompt {
+  display: none;
+  margin-top: 2rem;
+  background-color: #f3f0ea;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.donation-prompt h3 {
+  color: #4b6043;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.donation-prompt p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.loader-spinner {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #e07a5f;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* VR Level Styles */
+.vr-level {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.level-ui {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1rem;
+  border-radius: 10px;
+  color: white;
+}
+
+.level-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.complete-btn {
+  background-color: #e07a5f;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.complete-btn:hover {
+  background-color: #d16b4d;
+  transform: translateY(-2px);
+}
+
+.subtitle-overlay {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  z-index: 10;
+  font-size: 1.2rem;
+}
+
+/* Bagian Media Query yang Tepat (Konsolidasi) */
+@media (max-width: 992px) {
+  .project-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .journey-map {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .journey-map::before {
+    width: 4px;
+    height: 100%;
+    left: 50%;
+    top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+            
+  .section-header h2 {
+    font-size: 2rem;
+  }
+            
+  .fundraising-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+            
+  /* Sembunyikan navigasi normal */
+  .nav-links {
+    display: none; /* Hide on small screens */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%; /* Position below the nav */
+    left: 0;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    max-height: 0; /* Untuk efek slide-up/down */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+
+  /* Tampilkan navigasi saat active */
+  .nav-links.active {
+    display: flex; /* Penting: agar flex-direction berfungsi */
+    max-height: 250px; /* Sesuaikan sesuai konten menu */
+    padding-bottom: 2rem; /* Menambahkan padding di bagian bawah menu aktif*/
+  }
+
+  .nav-links li {
+    margin: 0;
+    text-align: center;
+    padding: 0.8rem 0; /* Padding vertikal untuk setiap item menu*/
+  }
+
+  .nav-links a {
+    color: #0F4456; /* Warna teks menu mobile*/
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: #360E2B; /* Warna hover untuk teks menu mobile*/
+  }
+
+  /* Tampilkan ikon hamburger di layar kecil */
+  .menu-toggle {
+    display: block; /* INI KUNCI PERBAIKANNYA */
+  }
+
+  /* Perubahan ikon hamburger menjadi X saat menu aktif */
+  .nav-links.active ~ .menu-toggle .hamburger-icon { /* Operator ~ untuk saudara kandung */
+      opacity: 0; /* Sembunyikan ikon hamburger saat menu aktif */
+  }
+
+  .nav-links.active ~ .menu-toggle .close-icon { /* Operator ~ untuk saudara kandung */
+      opacity: 1; /* Tampilkan ikon "x" saat menu aktif */
+  }
+  
+  .project-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .journey-map {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .journey-map::before {
+    width: 4px;
+    height: 100%;
+    left: 50%;
+    top: 0;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .vr-container {
+    height: 400px;
+  }
+}

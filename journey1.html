@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Honai</title>
+  <meta name="description" content="Scene 1 - Honai Village - A-Frame with corrected background sound.">
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <style>
+    body { margin: 0; overflow: hidden; }
+    .a-loader-title { color: #FFF; }
+  </style>
+</head>
+<body>
+  <a-scene loading-screen="dotsColor: white; backgroundColor: #2E2E2E">
+    <a-assets>
+      <a-asset-item id="honaiModel" src="https://cdn.glitch.me/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/RUMAH_HONAI_5_OPTOPT.glb?v=1748416721555" crossorigin="anonymous"></a-asset-item>
+      <a-asset-item id="groundModel" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/GROUND_REV.gltf?v=1748380719957" crossorigin="anonymous"></a-asset-item>
+      <a-asset-item id="tree1" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE1.gltf?v=1748275086819" crossorigin="anonymous"></a-asset-item>
+      <a-asset-item id="tree2" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE2.gltf?v=1748275079180" crossorigin="anonymous"></a-asset-item>
+      <a-asset-item id="tree3" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE3.gltf?v=174827507857" crossorigin="anonymous"></a-asset-item>
+      <a-asset-item id="tree4" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE4.gltf?v=17482750919" crossorigin="anonymous"></a-asset-item>
+      <a-asset-item id="tree5" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE5.gltf?v=1748275088856" crossorigin="anonymous"></a-asset-item>
+      <a-asset-item id="tree6" src="https://cdn.glitch.me/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE6.gltf?v=1748275116094" crossorigin="anonymous"></a-asset-item>
+      <a-asset-item id="tree7" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE7.gltf?v=17482750627" crossorigin="anonymous"></a-asset-item>
+
+      <img id="skyTexture" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/Panorama%20pagi.png?v=1748276155726" crossorigin="anonymous">
+
+      <audio id="backgroundSound" src="https://cdn.glitch.me/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/Scene%201%20(1).WAV?v=1748423528481" preload="auto" crossorigin="anonymous"></audio>
+    </a-assets>
+
+    <a-sky src="#skyTexture"></a-sky>
+
+    <a-gltf-model id="ground" src="#groundModel" position="0 0 0" scale="0.5 0.5 0.5" rotation="0 0 0"></a-gltf-model>
+
+    <a-gltf-model src="#honaiModel" position="50 0 23" scale="1 1 1" ></a-gltf-model>
+    <a-gltf-model src="#honaiModel" position="35 0 28" scale="1 1 1"></a-gltf-model>
+    <a-gltf-model src="#honaiModel" position="32 0 24" scale="1 1 1"></a-gltf-model>
+    <a-gltf-model src="#honaiModel" position="45 0 20" scale="1 1 1"></a-gltf-model>
+    <a-gltf-model src="#honaiModel" position="42 0 15" scale="1 1 1"></a-gltf-model>
+    <a-gltf-model src="#honaiModel" position="52 0 29" scale="1 1 1"></a-gltf-model>
+    <a-gltf-model src="#honaiModel" position="42 0 33" scale="1 1 1"></a-gltf-model>
+    <a-gltf-model src="#honaiModel" position="35 0 38" scale="1 1 1"></a-gltf-model>
+    <a-gltf-model src="#honaiModel" position="34 0 18" scale="1 1 1"></a-gltf-model>
+
+    <a-gltf-model src="#tree1" position="-15 0 8" scale="0.5 0.5 0.5"></a-gltf-model>
+    <a-gltf-model src="#tree2" position="-15 0 8" scale="0.55 0.55 0.55"></a-gltf-model>
+    <a-gltf-model src="#tree3" position="-6 0 9" scale="0.5 0.5 0.5"></a-gltf-model>
+    <a-gltf-model src="#tree4" position="-2 0 7" scale="0.5 0.5 0.5"></a-gltf-model>
+    <a-gltf-model src="#tree5" position="0 0 4" scale="0.6 0.6 0.6"></a-gltf-model>
+    <a-gltf-model src="#tree6" position="-2 0 1" scale="0.5 0.5 0.5"></a-gltf-model>
+    <a-gltf-model src="#tree7" position="-6 0 -1" scale="0.55 0.55 0.55"></a-gltf-model>
+    <a-gltf-model src="#tree1" position="0 0 -2" scale="0.5 0.5 0.5"></a-gltf-model>
+    <a-gltf-model src="#tree2" position="-2 0 1" scale="0.5 0.5 0.5"></a-gltf-model>
+    <a-gltf-model src="#tree3" position="-8 0 3" scale="0.55 0.55 0.55"></a-gltf-model>
+    <a-gltf-model src="#tree4" position="-4 0 5" scale="0.45 0.45 0.45"></a-gltf-model>
+    <a-gltf-model src="#tree5" position="-6 0 7" scale="0.5 0.5 0.5"></a-gltf-model>
+    <a-gltf-model src="#tree6" position="-10 0 5" scale="0.45 0.45 0.45"></a-gltf-model>
+    <a-gltf-model src="#tree7" position="-12 0 6" scale="0.4 0.4 0.4"></a-gltf-model>
+    <a-gltf-model src="#tree1" position="-2 0 5.5" scale="0.45 0.45 0.45"></a-gltf-model>
+    <a-gltf-model src="#tree1" position="-11 0 6" scale="0.5 0.5 0.5"></a-gltf-model>
+    <a-gltf-model src="#tree1" position="-14 0 3" scale="0.55 0.55 0.55"></a-gltf-model>
+
+    <a-entity id="cameraRig"
+              position="-30 1 -20"
+              rotation="0 -155 0"
+              animation="property: position;
+                         to: -18 1 4;
+                         dur: 90000;
+                         easing: linear;
+                         autoplay: true;
+                         delay: 2000;
+                         fill: forwards;">
+        <a-camera id="camera" position="0 0 0" look-controls="enabled: true">
+            <a-sound src="#backgroundSound"
+                     autoplay="true"
+                     loop="true"
+                     position="0 0 0"
+                     volume="2">
+            </a-sound>
+        </a-camera>
+    </a-entity>
+
+    <a-entity light="type: ambient; color: #BBB"></a-entity>
+    <a-entity light="type: directional; color: #FFF; intensity: 1" position="-1 1 2"></a-entity>
+
+  </a-scene>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const sceneEl = document.querySelector('a-scene');
+      const numTrees = 20;
+      const honaiClusterCenterX = -8.5;
+      const honaiClusterCenterZ = 5;  
+      const outerPlacementRadius = 20; 
+      const innerPlacementRadius = 6;  
+      const minX = -25;
+      const maxX = 10;
+      const minZ = -15;
+      const maxZ = 20;
+
+      for (let i = 0; i < numTrees; i++) {
+        let treeEl = document.createElement('a-gltf-model');
+        // Randomly choose one of the tree models
+        const treeModels = ['#tree1', '#tree2', '#tree3', '#tree4', '#tree5', '#tree6', '#tree7'];
+        const randomTreeSrc = treeModels[Math.floor(Math.random() * treeModels.length)];
+        treeEl.setAttribute('src', randomTreeSrc); 
+
+        let x, z;
+        let attempts = 0; 
+        do {
+          let angle = Math.random() * Math.PI * 2; 
+          let distance = innerPlacementRadius + Math.random() * (outerPlacementRadius - innerPlacementRadius);  
+          x = honaiClusterCenterX + distance * Math.cos(angle);
+          z = honaiClusterCenterZ + distance * Math.sin(angle);
+          attempts++;
+        } while ( (x < minX || x > maxX || z < minZ || z > maxZ) && attempts < 100 );
+
+        if (attempts < 100) { 
+          treeEl.setAttribute('position', { x: x, y: 0, z: z }); 
+          let randomScale = 0.45 + Math.random() * 0.15;  
+          // Corrected syntax for setting scale attribute
+          treeEl.setAttribute('scale', `${randomScale} ${randomScale} ${randomScale}`); 
+          sceneEl.appendChild(treeEl);
+        } else {
+          console.warn("Tidak dapat menemukan posisi yang cocok untuk pohon setelah beberapa percobaan.");
+        }
+      }
+    });
+  </script>
+</body>
+</html>

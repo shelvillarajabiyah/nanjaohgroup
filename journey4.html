@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Our School</title>
+  <meta name="description" content="We've arrived at school yeay!">
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <style>
+    body { margin: 0; overflow: hidden; }
+    .a-loader-title { color: #FFF; }
+  </style>
+</head>
+<body>
+<a-scene>
+    <a-assets>
+      <img id="panorama" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/Panorama%20sore.png?v=1748276141630">
+        
+        <audio id="ambient-audio" src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" preload="auto" loop="true" crossorigin="anonymous"></audio>
+        <audio id="suara-pael" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/Scene%204(2).WAV?v=1748446128874" preload="auto" loop="false" crossorigin="anonymous"></audio>
+        <audio id="suara-mading" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/Scene%204%20(Mading)%202.m4a?v=1748446148162" preload="auto" loop="false" crossorigin="anonymous"></audio>	
+        <img id="water-texture" src="https://picsum.photos/512/512?random=water" crossorigin="anonymous">
+        <img id="grass-texture" src="https://picsum.photos/512/512?random=3" crossorigin="anonymous">        
+        <img id="ground-texture" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/jlnstapak?v=1748276534752" crossorigin="anonymous"> 
+        <a-asset-item id="groundModel" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/GROUND_REV.gltf?v=1748380719957" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="gedung-sekolah" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/SEKOLAH_REV_3.gltf?v=1748273810139" crossorigin="anonymous"></a-asset-item>     
+        <a-asset-item id="tree1" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE1.gltf?v=1748275086819" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="tree2" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE2.gltf?v=1748275079180" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="tree4" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE4.gltf?v=17482750919" crossorigin="anonymous"></a-asset-item>  
+        <a-asset-item id="mading" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/MADING.gltf?v=1748275153098" crossorigin="anonymous"></a-asset-item>  
+    
+    </a-assets>
+    
+    <a-sky src="#panorama" rotation="0 0 0"></a-sky>
+    
+    <a-light type="ambient" color="4fc3f7" intensity="0.4"></a-light>
+    <a-light type="directional"  
+              position="10 15 5"  
+              color="#ffb366"  
+              intensity="0.8"
+              shadow="cast: true; mapSize: 2048, 2048"
+              light="castShadow: true"></a-light>
+    
+    <a-entity id="school">
+    	<a-gltf-model id="ground" src="#groundModel" position="300 0 200" scale="8 8 8" rotation="0 0 0"></a-gltf-model>
+        <a-gltf-model src="#gedung-sekolah" position="0 0 0"   scale="4 4 4" rotation="0 0 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        <a-gltf-model src="#mading" position="-160 3 6.5"   scale="4 4 4" rotation="0 180 0" shadow="cast: true; receive: false;"></a-gltf-model>
+    </a-entity>
+    
+    <a-entity id="pohon">
+    	<a-gltf-model src="#tree1" position="-18 0 10"   scale="3 3 3" rotation="0 0 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="-20 0 10"   scale="1 1 1" rotation="0 0 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="-65 0 20"   scale="1 1 1" rotation="0 0 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        <a-gltf-model src="#tree2" position="5 0 20"   scale="4 4 4" rotation="0 0 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        <a-gltf-model src="#tree2" position="-50 0 30"   scale="2 2 2" rotation="0 0 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        <a-gltf-model src="#tree4" position="255 0 190"   scale="15 15 15" rotation="0 0 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="40 0 35"   scale="3 3 3" rotation="0 0 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="30 0 0"   scale="1 1 1" rotation="0 0 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        
+        
+        <a-gltf-model src="#tree1" position="-18 0 -90"   scale="3 3 3" rotation="0 0 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="20 0 -90"   scale="1 1 1" rotation="0 0 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        <a-gltf-model src="#tree2" position="5 0 -80"   scale="4 4 4" rotation="0 0 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        <a-gltf-model src="#tree4" position="250 0 80"   scale="15 15 15" rotation="0 0 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="40 0 70"   scale="3 3 3" rotation="0 0 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        
+        <a-gltf-model src="#tree1" position="-20 0 -60"   scale="1 1 1" rotation="0 0 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        <a-gltf-model src="#tree4" position="130 0 90"   scale="15 15 15" rotation="0 0 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        <a-gltf-model src="#tree4" position="110 0 110"   scale="15 15 15" rotation="0 0 0" shadow="cast: true; receive: false;"></a-gltf-model>
+    </a-entity>
+    
+    
+    
+    <a-entity id="rig" movement-controls position="1 3 0" rotation="0 50 0">
+        <a-entity camera  
+              look-controls  
+              wasd-controls="acceleration: 200">
+        <a-sound src="#suara-pael"
+                  autoplay="true"
+                  loop="false"
+                  position="0 0 0"
+                  volume="0.8">
+        </a-sound>
+        </a-entity>
+      
+        <a-entity hand-controls="hand: left" laser-controls raycaster="objects: .interactive"></a-entity>
+        <a-entity hand-controls="hand: right" laser-controls raycaster="objects: .interactive"></a-entity>
+      
+        <a-cursor animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+              geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+              material="color: white; shader: flat"
+              raycaster="objects: .interactive">
+        </a-cursor>
+    </a-entity>
+</a-scene>
+
+  <script>
+      // Wait for A-Frame to fully load
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('WebVR River Crossing Scene Loaded');
+      
+      // Wait a bit more for A-Frame entities to be ready
+      setTimeout(() => {
+        // Get the "Let's Go" button - more specific selector
+        const letsGoButton = document.querySelector('a-text.interactive');
+        
+        if (letsGoButton) {
+          console.log('Button found, adding event listeners');
+          
+          // Add click event listener
+          letsGoButton.addEventListener('click', function(evt) {
+            console.log('Let\'s Go button clicked - navigating to journey4.html');
+            evt.stopPropagation();
+            
+            // Add a brief transition effect
+            const scene = document.querySelector('a-scene');
+            scene.style.transition = 'opacity 0.5s';
+            scene.style.opacity = '0';
+            
+            // Navigate to next scene after transition
+            setTimeout(() => {
+              window.location.href = 'journey4.html';
+            }, 500);
+          });
+
+          // Additional interaction feedback
+          letsGoButton.addEventListener('mouseenter', function() {
+            console.log('Hovering over Let\'s Go button');
+          });
+          
+          letsGoButton.addEventListener('mouseleave', function() {
+            console.log('Left Let\'s Go button');
+          });
+          
+        } else {
+          console.error('Let\'s Go button not found!');
+        }
+      }, 1000); // Wait 1 second for A-Frame to initialize
+    });
+
+    // Error handling for missing assets
+    window.addEventListener('error', function(e) {
+      console.warn('Asset loading error:', e.filename);
+      // Continue with scene loading even if some assets fail
+    });
+  </script>
+
+</body>
+</html>

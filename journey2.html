@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Forest Path</title>
+    <meta name="description" content="VR Pemandangan Hutan dengan animasi intro otomatis ke perahu dan interaksi">
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script>
+        // Komponen untuk memainkan suara saat diklik
+        AFRAME.registerComponent('play-sound-on-click', {
+            schema: {
+                sound: {type: 'string'} // ID dari elemen audio
+            },
+            init: function () {
+                var el = this.el;
+                var soundId = this.data.sound;
+                var soundEl = document.querySelector(soundId);
+
+                if (!soundEl) {
+                    console.error('Elemen suara tidak ditemukan:', soundId);
+                    return;
+                }
+
+                el.addEventListener('click', function () {
+                    if (soundEl.components && soundEl.components.sound) {
+                        soundEl.components.sound.playSound();
+                    } else {
+                        // Fallback jika komponen sound belum terinisialisasi sepenuhnya atau tidak ada
+                        soundEl.play();
+                    }
+                });
+            }
+        });
+
+        // Komponen untuk mengaktifkan kontrol setelah animasi pada cameraRig selesai
+        AFRAME.registerComponent('intro-animation-handler', {
+            init: function () {
+                var cameraRig = this.el; // Ini adalah cameraRig
+                var camera = document.getElementById('camera'); // Ambil elemen kamera
+
+                // Nonaktifkan look-controls dan wasd-controls pada cameraRig secara default
+                if (camera) {
+                    camera.setAttribute('look-controls', 'enabled', false);
+                }
+                cameraRig.setAttribute('wasd-controls', 'enabled', false);
+
+                // Dengarkan event ketika animasi pada cameraRig selesai
+                cameraRig.addEventListener('animationcomplete__position', function () {
+                    console.log('Animasi intro posisi selesai. Mengaktifkan kontrol pengguna.');
+                    if (camera) {
+                        camera.setAttribute('look-controls', 'enabled', true);
+                    }
+                    cameraRig.setAttribute('wasd-controls', 'enabled', true);
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <a-scene>
+        <a-assets>
+            <img id="skyTexture" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/Forest.png?v=1748415324027">
+            <img id="groundTexture" src="https://cdn.glitch.me/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/Tanah.png?v=1748433461126">
+            <a-asset-item id="perahuModel" src="https://cdn.glitch.me/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/perahu%20sunge.gltf?v=1748273899419"></a-asset-item>
+
+            <a-asset-item id="tree1" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE1.gltf?v=1748275086819" crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="tree5" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE5.gltf?v=1748275088856" crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="tree6" src="https://cdn.glitch.me/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE6.gltf?v=1748275116094" crossorigin="anonymous"></a-asset-item>
+            <a-asset-item id="ilalang" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/ILALANG.gltf?v=1748275060773" crossorigin="anonymous"></a-asset-item>
+
+            <audio id="suaraPerahuAsset" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/Scene%202%20(Sampan).m4a?v=1748436032662" preload="auto"></audio>
+            <audio id="backgroundSound" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/Scene%202(1).WAV?v=1748436026622" preload="auto"></audio>
+        </a-assets>
+
+        <a-sky
+            src="#skyTexture"
+            rotation="0 0 0">
+        </a-sky>
+
+        <a-plane
+            src="#groundTexture"
+            position="0 0 0"
+            rotation="-90 0 0"
+            width="60" height="80" material="shader: flat;" repeat="1 1">
+        </a-plane>
+
+        <a-gltf-model src="#tree1" position="21 0 -20" scale="1.2 1.2 1.2"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="23 0 -25" scale="1.2 1.2 1.2"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="22 0 -30" scale="1.2 1.2 1.2"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="21 0 -35" scale="1.2 1.2 1.2"></a-gltf-model>
+        
+        
+        <a-gltf-model src="#tree1" position="22 0 -5" scale="1.2 1.2 1.2"></a-gltf-model>
+		<a-gltf-model src="#tree1" position="23 0 -10" scale="1.2 1.2 1.2"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="21 0 -15" scale="1.2 1.2 1.2"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="20 0 0" scale="1.2 1.2 1.2"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="18 0 5" scale="1.2 1.2 1.2"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="16 0 10" scale="1.2 1.2 1.2"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="21 0 15" scale="1.2 1.2 1.2"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="19 0 20" scale="1.2 1.2 1.2"></a-gltf-model>
+		<a-gltf-model src="#tree1" position="20 0 25" scale="1.2 1.2 1.2"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="30 0 5" scale="1.2 1.2 1.2"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="32 0 10" scale="1.2 1.2 1.2"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="29 0 15" scale="1.2 1.2 1.2"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="30 0 20" scale="1.2 1.2 1.2"></a-gltf-model>
+        <a-gltf-model src="#tree1" position="31 0 25" scale="1.2 1.2 1.2"></a-gltf-model>
+        <a-entity
+            id="perahuKlik"
+            gltf-model="#perahuModel"
+            position="2 0.1 -7" scale="0.8 0.8 0.8"
+            rotation="0 45 0"
+            play-sound-on-click="sound: #suaraPerahuEntitas">
+
+            <a-sphere
+                id="efekSinarPerahu"
+                position="0 0.1 -12" radius="1.5" material="color: yellow; shader: flat; transparent: true; opacity: 0.3;"
+                animation="property: material.opacity; from: 0.1; to: 0.5; dur: 1000; dir: alternate; loop: true; easing: easeInOutSine"
+                animation__scale="property: scale; from: 1 1 1; to: 1.2 1.2 1.2; dur: 1000; dir: alternate; loop: true; easing: easeInOutSine">
+            </a-sphere>
+
+            <a-text
+                id="teksKlikPerahu"
+                value="Klik!"
+                align="center"
+                position="0 1.5 -15" scale="1.5 1.5 1.5" color="white"
+                side="double" look-at="[camera]">
+                <a-animation attribute="material.opacity" from="0.5" to="1" dur="1000" dir="alternate" repeat="indefinite" easing="easeInOutSine"></a-animation>
+            </a-text>
+        </a-entity>
+
+        <a-entity id="suaraPerahuEntitas" sound="src: #suaraPerahuAsset; autoplay: false; loop: false; volume: 4"></a-entity>
+
+        <a-entity id="cameraRig"
+                  position="2 1.6 20" rotation="0 0 0" intro-animation-handler wasd-controls="fly: false; acceleration: 45; enabled: false;" animation__position="property: position;
+                                     from: -7 1.6 40;  to: -8 1.6 -5;    dur: 50000;      easing: linear;
+                                     autoplay: true;
+                                     fill: forwards;">
+            <a-camera id="camera"
+                      fov="40"
+                      look-controls="enabled: false; pointerLockEnabled: true;">
+                <a-entity cursor="fuse: true; fuseTimeout: 500; objects: [gltf-model]"
+                          position="0 0 -1"
+                          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                          material="color: white; shader: flat; opacity: 0.6">
+                </a-entity>
+                <a-sound src="#backgroundSound"
+                         autoplay="true"
+                         loop="false"
+                         position="0 0 0"
+                         volume="2">
+                </a-sound>
+            </a-camera>
+        </a-entity>
+    </a-scene>
+</body>
+</html>

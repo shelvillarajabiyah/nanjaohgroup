@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nanjaoh Group - VR Experience for Papua Children's Education</title>
+  <link rel="stylesheet" href="vr-experience.css"> <link rel="icon" href="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/nanjaoh-group-logo.png?v=1747759081816">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.4.2/aframe.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</head>
+  
+<body>
+<nav>
+    <div class="nav-container">
+      <div class="logo"><img src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/nanjaoh-group-logo.png?v=1747759081816" alt="Logo Nanjaoh Group" height="60px"></div>
+      <ul class="nav-links" id="navLinks"> <li><a href="index.html">Home</a></li>
+        <li><a href="vr-experience.html">VR Experience</a></li>
+        <li><a href="journey5.html" class="donate-link">Donate</a></li>
+        <li><a href="index.html" class="about-link">About Us</a></li>
+      </ul>
+      <div class="menu-toggle" id="mobileMenu"> <i class="fas fa-bars hamburger-icon"></i>
+        <i class="fas fa-times close-icon"></i>
+      </div>
+    </div>
+  </nav>
+  
+    <main class="container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 class="main-title">Through The Eyes of Papua Pegunungan Children</h1>
+        
+        <p class="description">
+            Follow the daily path of a child from Papua Pegunungan as they overcome challenges to reach school. Complete each stage to unlock the next part of the journey.
+        </p>
+
+        <div class="journey-container">
+            <div class="journey-path">
+                <div class="path-line"></div>
+            </div>
+            
+            <div class="journey-buttons">
+                <a href="journey1.html" class="journey-btn" id="journey1-btn" data-title="Honai">
+                    <span class="btn-number">1</span>
+                </a>
+                
+                <a href="journey2.html" class="journey-btn" id="journey2-btn" data-title="Forest Path">
+                    <span class="btn-number">2</span>
+                </a>
+                
+                <a href="journey3.html" class="journey-btn" id="journey3-btn" data-title="River">
+                    <span class="btn-number">3</span>
+                </a>
+                
+                <a href="journey4.html" class="journey-btn" id="journey4-btn" data-title="Our School">
+                    <span class="btn-number">4</span>
+                </a>
+                
+                <a href="journey5.html" class="journey-btn" id="journey5-btn" data-title="Thank You">
+                    <span class="btn-number">5</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="vr-container" id="vr-container">
+            <h2>Preview</h2>
+            <div class="preview-frame">
+                <iframe 
+                    id="preview-iframe" 
+                    class="preview-iframe" 
+                    src="journey1.html"
+                    title="VR Journey Preview">
+                </iframe>
+            </div>
+            <div class="journey-info" id="journey-info">
+                <h3>Honai - Traditional Papuan Home</h3>
+                <p>Experience the warmth of a traditional Honai dwelling, where families gather and children begin their day before the long journey to school.</p>
+            </div>
+        </div>
+    </main>
+
+<footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>About Nanjaoh Group</h3>
+        <p>We are dedicated to improving education in Papua's mountains through innovative VR experiences that raise awareness and funds for sustainable educational initiatives.</p>
+      </div>
+      
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <p>Email: info@nanjaohgroup.org</p>
+        <p>Phone: +62 123 4567 890</p>
+        <p>Address: Jakarta, Indonesia</p>
+      </div>
+      
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <p>Stay updated with our latest projects and initiatives through our social media channels.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Nanjaoh Group. All rights reserved.</p>
+    </div>
+  </footer>
+  
+<script src="vr-experience.js"></script> </body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>River</title>
+  <meta name="description" content="Crossing the River with Canoe.">
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <style>
+    body { margin: 0; overflow: hidden; }
+    .a-loader-title { color: #FFF; }
+  </style>
+</head>
+<body>
+<a-scene>
+    <a-assets>
+        <img id="panorama" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/Panorama%20siang.png?v=1748276135413">
+        <audio id="ambient-audio" src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" preload="auto" loop="true" crossorigin="anonymous"></audio>    
+        <audio id="sound-background" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/SOUND SCENE4.WAV?v=1748429842728" preload="auto" loop="false" crossorigin="anonymous"></audio>     
+        <img id="water-texture" src="https://picsum.photos/512/512?random=water" crossorigin="anonymous"> 
+        <img id="groundTexture" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/texture%20tanah?v=1748276506176">
+        
+        <a-asset-item id="canoeModel" src="https://cdn.glitch.me/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/perahu%20sunge.gltf?v=1748273899419" crossorigin="anonymous"></a-asset-item> 
+        <a-asset-item id="rock3" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/ROCK3.gltf?v=1748275178449" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="rock4" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/ROCK4.gltf?v=1748275178756" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="rock5" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/ROCK5.gltf?v=1748275146231" crossorigin="anonymous"></a-asset-item>
+                
+        <a-asset-item id="ilalangModel" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/ILALANG.gltf?v=1748275060773" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="tree1" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE1.gltf?v=1748275086819" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="tree2" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE2.gltf?v=1748275079180" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="tree4" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE4.gltf?v=1748275091952" crossorigin="anonymous"></a-asset-item>    
+    </a-assets>
+    
+    <a-sky src="#panorama" rotation="0 50 0"></a-sky>
+    
+    <a-light type="ambient" color="4fc3f7" intensity="0.4"></a-light>
+    <a-light type="directional" 
+             position="10 15 5" 
+             color="#ffb366" 
+             intensity="0.8"
+             shadow="cast: true; mapSize: 2048, 2048"
+             light="castShadow: true"></a-light>
+    
+    <a-light type="ambient" color="#ffffff" intensity="0.5"></a-light>
+    <a-light type="directional" color="#fff" intensity="0.8" position="1 1 0"></a-light>
+  
+    <a-plane 
+      position="0 0 -500" 
+      rotation="-90 0 0" 
+      width="20" 
+      height="1000" 
+      src="#water-texture"
+      material="color: #4fc3f7; transparent: true; opacity: 1"
+      animation="property: material.offset; 
+                 to: 1 1; 
+                 dur: 100000; 
+                 easing: linear; 
+                 loop: true">
+    </a-plane>
+    
+    <a-plane
+      position="0 -0.1 -500"  rotation="-90 0 0"
+      width="1000"           height="1000"          src="#groundTexture"
+      material="repeat: 100 100;"> </a-plane>
+    
+    <a-sound src="#ambient-audio" 
+             autoplay="true" 
+             loop="true" 
+             volume="0.5"
+             position="0 2 0"></a-sound>
+    
+    <a-sound id="main-background-sound" src="#sound-background"
+             autoplay="false" 
+             loop="false" 
+             volume="100"></a-sound>
+  
+    <a-entity id="river-decoration">
+      <a-gltf-model src="#ilalangModel" position="5 0 -7" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="0 0 -7" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="5 0 -14" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="-5 0 -21" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="0 0 -28" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="5 0 -35" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="-5 0 -42" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="0 0 -49" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="5 0 -56" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="-5 0 -63" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="0 0 -70" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="5 0 -77" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="-5 0 -84" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="0 0 -91" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="5 0 -98" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="-5 0 -105" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="0 0 -112" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="5 0 -119" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="-5 0 -126" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="0 0 -133" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="5 0 -140" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#ilalangModel" position="-5 0 -147" scale="1.5 1.5 1.5"></a-gltf-model>
+            
+      <!--Sisi Kiri-->
+      <a-gltf-model src="#tree1" position="35 0 -4" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="30 0 -4" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="35 0 -11" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="25 0 -18" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="30 0 -25" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="35 0 -32" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="25 0 -39" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="30 0 -46" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="35 0 -53" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="25 0 -60" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="30 0 -67" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="35 0 -74" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="25 0 -81" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="30 0 -88" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="35 0 -95" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="25 0 -102" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="30 0 -109" scale="1.5 1.5 1.5"></a-gltf-model> 	
+      <a-gltf-model src="#tree1" position="35 0 -116" scale="1.5 1.5 1.5"></a-gltf-model> 
+      <a-gltf-model src="#tree1" position="25 0 -123" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="30 0 -130" scale="1.5 1.5 1.5"></a-gltf-model> 	
+      <a-gltf-model src="#tree1" position="35 0 -137" scale="1.5 1.5 1.5"></a-gltf-model> 
+      <a-gltf-model src="#tree1" position="25 0 -144" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="30 0 -151" scale="1.5 1.5 1.5"></a-gltf-model> 	
+      <a-gltf-model src="#tree1" position="35 0 -158" scale="1.5 1.5 1.5"></a-gltf-model> 
+      <a-gltf-model src="#tree1" position="25 0 -165" scale="1.5 1.5 1.5"></a-gltf-model>
+      
+      <a-gltf-model src="#rock5" position="-29 0 -11" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-34 0 -11" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-29 0 -18" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-39 0 -25" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-34 0 -32" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-29 0 -39" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-39 0 -46" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-34 0 -53" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-29 0 -60" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-39 0 -67" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-34 0 -74" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-29 0 -81" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-39 0 -88" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-34 0 -95" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-29 0 -102" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-39 0 -109" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-34 0 -116" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-29 0 -123" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-39 0 -130" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-34 0 -137" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-29 0 -144" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-39 0 -151" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-34 0 -158" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-29 0 -165" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-39 0 -172" scale="2 2 2"></a-gltf-model>
+      
+      <!--Sisi Kanan-->
+      <a-gltf-model src="#tree1" position="60 0 -4" scale="1.5 1.5 1.5"></a-gltf-model>   
+      <a-gltf-model src="#tree1" position="55 0 -4" scale="1.5 1.5 1.5"></a-gltf-model>   
+      <a-gltf-model src="#tree1" position="60 0 -11" scale="1.5 1.5 1.5"></a-gltf-model>  
+      <a-gltf-model src="#tree1" position="50 0 -18" scale="1.5 1.5 1.5"></a-gltf-model> 
+      <a-gltf-model src="#tree1" position="55 0 -25" scale="1.5 1.5 1.5"></a-gltf-model>  
+      <a-gltf-model src="#tree1" position="60 0 -32" scale="1.5 1.5 1.5"></a-gltf-model>  
+      <a-gltf-model src="#tree1" position="50 0 -39" scale="1.5 1.5 1.5"></a-gltf-model> 
+      <a-gltf-model src="#tree1" position="55 0 -46" scale="1.5 1.5 1.5"></a-gltf-model>  
+      <a-gltf-model src="#tree1" position="60 0 -53" scale="1.5 1.5 1.5"></a-gltf-model>  
+      <a-gltf-model src="#tree1" position="50 0 -60" scale="1.5 1.5 1.5"></a-gltf-model> 
+      <a-gltf-model src="#tree1" position="55 0 -67" scale="1.5 1.5 1.5"></a-gltf-model>  
+      <a-gltf-model src="#tree1" position="60 0 -74" scale="1.5 1.5 1.5"></a-gltf-model>  
+      <a-gltf-model src="#tree1" position="50 0 -81" scale="1.5 1.5 1.5"></a-gltf-model> 
+      <a-gltf-model src="#tree1" position="55 0 -88" scale="1.5 1.5 1.5"></a-gltf-model>  
+      <a-gltf-model src="#tree1" position="60 0 -95" scale="1.5 1.5 1.5"></a-gltf-model>  
+      <a-gltf-model src="#tree1" position="50 0 -102" scale="1.5 1.5 1.5"></a-gltf-model>
+      <a-gltf-model src="#tree1" position="55 0 -109" scale="1.5 1.5 1.5"></a-gltf-model> 
+      <a-gltf-model src="#tree1" position="60 0 -116" scale="1.5 1.5 1.5"></a-gltf-model> 
+      <a-gltf-model src="#tree1" position="50 0 -123" scale="1.5 1.5 1.5"></a-gltf-model> 
+      <a-gltf-model src="#tree1" position="55 0 -130" scale="1.5 1.5 1.5"></a-gltf-model> 
+      <a-gltf-model src="#tree1" position="60 0 -137" scale="1.5 1.5 1.5"></a-gltf-model> 
+      <a-gltf-model src="#tree1" position="50 0 -144" scale="1.5 1.5 1.5"></a-gltf-model> 
+      <a-gltf-model src="#tree1" position="55 0 -151" scale="1.5 1.5 1.5"></a-gltf-model> 
+      <a-gltf-model src="#tree1" position="60 0 -158" scale="1.5 1.5 1.5"></a-gltf-model> 
+      <a-gltf-model src="#tree1" position="50 0 -165" scale="1.5 1.5 1.5"></a-gltf-model>
+      
+      <a-gltf-model src="#rock5" position="-4 0 -11" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-9 0 -11" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-4 0 -18" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-14 0 -25" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-9 0 -32" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-4 0 -39" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-14 0 -46" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-9 0 -53" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-4 0 -60" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-14 0 -67" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-9 0 -74" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-4 0 -81" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-14 0 -88" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-9 0 -95" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-4 0 -102" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-14 0 -109" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-9 0 -116" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-4 0 -123" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-14 0 -130" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-9 0 -137" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-4 0 -144" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-14 0 -151" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-9 0 -158" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-4 0 -165" scale="2 2 2"></a-gltf-model>
+      <a-gltf-model src="#rock5" position="-14 0 -172" scale="2 2 2"></a-gltf-model>
+    </a-entity>
+    
+    <a-entity id="cameraRig" position="0 1.6 0" auto-move>
+        <a-entity
+          camera
+          look-controls="pointerLockEnabled: true"
+          wasd-controls="enabled: false"></a-entity> 
+    </a-entity>
+  
+</a-scene>
+
+  <script>
+    AFRAME.registerComponent("auto-move", {
+      tick: function (time, timeDelta) {
+        const el = this.el;
+        const position = el.getAttribute("position");
+        position.z -= timeDelta * 0.0015; // Slow forward movement
+        el.setAttribute("position", position);
+      },
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const backgroundSound = document.getElementById('main-background-sound');
+        const cameraRig = document.getElementById('cameraRig');
+        const cameraEntity = cameraRig.querySelector('[camera]');
+
+        if (backgroundSound && cameraRig && cameraEntity) {
+            // Durasi audio dalam milidetik (1 menit 15 detik = 75 * 1000 ms)
+            const audioDurationMs = 75 * 1000; 
+            // Waktu tunda sebelum memutar sound-background (3 detik)
+            const delayBeforePlaySound = 3 * 1000;
+
+            // Fungsi untuk menghentikan gerakan dan mengaktifkan kontrol
+            const stopMovementAndEnableControls = () => {
+                console.log('Stopping auto-move and enabling WASD controls.');
+                cameraRig.removeAttribute('auto-move');
+                cameraEntity.setAttribute('wasd-controls', 'enabled: true');
+            };
+
+            // Menggunakan setTimeout untuk memutar sound-background setelah 3 detik
+            setTimeout(() => {
+                backgroundSound.components.sound.playSound();
+                console.log('Background sound started after 3 seconds.');
+            }, delayBeforePlaySound);
+
+            // Menggunakan setTimeout sebagai metode utama untuk menghentikan gerakan
+            // Ini akan memastikan gerakan berhenti tepat setelah 1 menit 15 detik dari dimulainya sound
+            // Jadi, total waktu dari load halaman sampai berhenti adalah delayBeforePlaySound + audioDurationMs
+            setTimeout(stopMovementAndEnableControls, delayBeforePlaySound + audioDurationMs);
+
+            // Menjaga event listener untuk 'sound-ended'/'ended' sebagai fallback
+            backgroundSound.addEventListener('sound-ended', function () {
+                console.log('Background sound ended (A-Frame event).');
+                if (cameraRig.hasAttribute('auto-move')) {
+                    stopMovementAndEnableControls();
+                }
+            });
+
+            backgroundSound.addEventListener('ended', function () {
+                console.log('Native audio ended (fallback event).');
+                if (cameraRig.hasAttribute('auto-move')) {
+                    stopMovementAndEnableControls();
+                }
+            });
+
+        } else {
+            console.warn("One or more required elements (backgroundSound, cameraRig, cameraEntity) not found.");
+        }
+    });
+  </script>
+
+</body>
+</html>

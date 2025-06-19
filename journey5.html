@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Thankyou!</title>
+  <meta name="description" content="Thank You Mas Argi Tendo!">
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <style>
+    body { margin: 0; overflow: hidden; }
+    .a-loader-title { color: #FFF; }
+  </style>
+</head>
+<body>
+<a-scene>
+	<a-assets>
+    	<img id="panorama" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/Panorama%20siang.png?v=1748276135413">
+        
+        <audio id="ambient-audio" src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" preload="auto" loop="true" crossorigin="anonymous"></audio>
+        
+        <img id="water-texture" src="https://picsum.photos/512/512?random=water" crossorigin="anonymous">
+        
+        <video id="credits" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/Scene%205.mp4?v=1748444614050" autoplay loop crossorigin="anonymous"></video>
+        
+        <img id="grass-texture" src="https://picsum.photos/512/512?random=3" crossorigin="anonymous">
+        
+        <a-asset-item id="canoeModel" src="https://cdn.glitch.me/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/perahu%20sunge.gltf?v=1748273899419" crossorigin="anonymous"></a-asset-item>
+            
+      	<a-asset-item id="rock1" src="https://cdn.glitch.me/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/perahu%20sunge.gltf?v=1748273899419" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="rock3" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/ROCK3.gltf?v=1748275178449" crossorigin="anonymous"></a-asset-item>
+      	<a-asset-item id="rock4" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/ROCK4.gltf?v=1748275178756" crossorigin="anonymous"></a-asset-item>
+      		
+        <a-asset-item id="ilalangModel" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/ILALANG.gltf?v=1748275060773" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="tree1" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE1.gltf?v=1748275086819" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="tree2" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE2.gltf?v=1748275079180" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="tree3" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE3.gltf?v=1748275078579" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="tree4" src="https://cdn.glitch.global/b8c33a7f-6955-4bfe-88b9-2ddf01d3b391/TREE4.gltf?v=1748275091952" crossorigin="anonymous"></a-asset-item>    
+    </a-assets>
+    
+    <a-sky src="#panorama" rotation="0 0 0"></a-sky>
+    
+    <a-light type="ambient" color="4fc3f7" intensity="0.4"></a-light>
+    <a-light type="directional" 
+             position="10 15 5" 
+             color="#ffb366" 
+             intensity="0.8"
+             shadow="cast: true; mapSize: 2048, 2048"
+             light="castShadow: true"></a-light>
+             
+		
+    
+    <a-plane position="0 0.1 -8" 
+             rotation="-90 0 0" 
+             width="1000" 
+             height="50" 
+             src="#water-texture"
+             material="color: #4fc3f7 ; transparent: true; opacity: 0.8"
+                 animation="property: material.offset; 
+                           to: 1 1; 
+                           dur: 10000; 
+                           easing: linear; 
+                           loop: true">
+        </a-plane>
+    
+    <a-entity id="find-canoe">
+        <a-gltf-model src="#canoeModel" position="3 0 45"   scale="2 2 2" rotation="0 20 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        <a-gltf-model src="#ilalangModel" position="-5 0 35"   scale="2 2 2" rotation="0 0 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        <a-gltf-model src="#ilalangModel" position="-4 0 42"   scale="2 2 2" rotation="0 20 0" shadow="cast: true; receive: false;"></a-gltf-model>
+        <a-gltf-model src="#tree4" position="115 0 45"   scale="6 6 6" rotation="0 20 0" shadow="cast: true; receive: false;"></a-gltf-model>
+    </a-entity>
+   
+        
+        
+  	<a-video src="#credits" position="3 3 20" width="8" height="4.5"></a-video> 
+    
+    <!-- Small details - floating leaves on water -->
+    <a-circle position="1 -0.35 -12" 
+              radius="0.3" 
+              color="#90ee90"
+              rotation="-90 0 0"
+              animation="property: rotation; 
+                        to: -90 360 0; 
+                        dur: 8000; 
+                        loop: true">
+    </a-circle>
+    <a-circle position="-3 -0.35 -14" 
+              radius="0.25" 
+              color="#adff2f"
+              rotation="-90 0 0"
+              animation="property: rotation; 
+                        to: -90 -360 0; 
+                        dur: 12000; 
+                        loop: true">
+    </a-circle>
+    
+    <!-- Camera/User Position -->
+    <a-entity id="rig" movement-controls position="-8 5 30">
+        <a-entity camera 
+                look-controls 
+                wasd-controls>
+        </a-entity>
+      
+        <!-- VR Controllers -->
+        <a-entity hand-controls="hand: left" laser-controls raycaster="objects: .interactive"></a-entity>
+        <a-entity hand-controls="hand: right" laser-controls raycaster="objects: .interactive"></a-entity>
+    
+        <!-- Cursor for desktop interaction -->
+        <a-cursor animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+              geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+              material="color: white; shader: flat"
+              raycaster="objects: .interactive">
+        </a-cursor>
+    </a-entity>
+</a-scene>
+
+  <script>
+      // Wait for A-Frame to fully load
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('WebVR River Crossing Scene Loaded');
+      
+      // Wait a bit more for A-Frame entities to be ready
+      setTimeout(() => {
+        // Get the "Let's Go" button - more specific selector
+        const letsGoButton = document.querySelector('a-text.interactive');
+        
+        if (letsGoButton) {
+          console.log('Button found, adding event listeners');
+          
+          // Add click event listener
+          letsGoButton.addEventListener('click', function(evt) {
+            console.log('Let\'s Go button clicked - navigating to journey4.html');
+            evt.stopPropagation();
+            
+            // Add a brief transition effect
+            const scene = document.querySelector('a-scene');
+            scene.style.transition = 'opacity 0.5s';
+            scene.style.opacity = '0';
+            
+            // Navigate to next scene after transition
+            setTimeout(() => {
+              window.location.href = 'journey4.html';
+            }, 500);
+          });
+
+          // Additional interaction feedback
+          letsGoButton.addEventListener('mouseenter', function() {
+            console.log('Hovering over Let\'s Go button');
+          });
+          
+          letsGoButton.addEventListener('mouseleave', function() {
+            console.log('Left Let\'s Go button');
+          });
+          
+        } else {
+          console.error('Let\'s Go button not found!');
+        }
+      }, 1000); // Wait 1 second for A-Frame to initialize
+    });
+
+    // Error handling for missing assets
+    window.addEventListener('error', function(e) {
+      console.warn('Asset loading error:', e.filename);
+      // Continue with scene loading even if some assets fail
+    });
+  </script>
+
+</body>
+</html>
